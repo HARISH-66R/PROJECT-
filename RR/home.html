@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Literacy Prototype</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js"></script>
+    <script src="firebase-config.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+    <header>
+        <h1>🛡️ Cyber Safety Prototype</h1>
+        <p>Learn & stay safe online—accessible for all!</p>
+        <div id="google_translate_element"></div>
+    </header>
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('quiz')">Quiz</button>
+        <button onclick="showSection('tools')">Tools</button>
+        <button onclick="speakText('Explore cyber safety features!')">🔊 Speak</button>
+    </nav>
+    <main>
+        <section id="home" class="active">
+            <h2>Welcome to Digital Literacy</h2>
+            <p>Discover tips on phishing, strong passwords, and privacy.</p>
+            <img src="https://via.placeholder.com/300x150?text=Infographic" alt="Cyber Infographic">
+            <iframe width="300" height="169" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+        </section>
+        <section id="quiz">
+            <h2>Quick Quiz</h2>
+            <div id="quiz-container">
+                <div class="question" id="q1">
+                    <p>What is phishing?</p>
+                    <button onclick="answer('q1', 'B')">A scam to steal info</button>
+                    <button onclick="answer('q1', 'A')">A fish</button>
+                </div>
+                <div class="question hidden" id="q2">
+                    <p>Strong password example?</p>
+                    <button onclick="answer('q2', 'B')">P@ssw0rd!2023</button>
+                    <button onclick="answer('q2', 'A')">123456</button>
+                </div>
+                <div class="question hidden" id="q3">
+                    <p>Click unknown links?</p>
+                    <button onclick="answer('q3', 'B')">No</button>
+                    <button onclick="answer('q3', 'A')">Yes</button>
+                </div>
+            </div>
+            <button onclick="submitQuiz()">Submit</button>
+            <p id="score"></p>
+        </section>
+        <section id="tools">
+            <h2>Safety Tools</h2>
+            <div>
+                <input type="password" id="pwd" placeholder="Check password">
+                <button onclick="checkPwd()">Check</button>
+                <p id="pwd-result"></p>
+            </div>
+            <div>
+                <input type="text" id="url" placeholder="Check URL">
+                <button onclick="checkUrl()">Check Phishing</button>
+                <p id="url-result"></p>
+            </div>
+        </section>
+    </main>
+    <footer>Prototype built with Firebase & APIs for impact.</footer>
+    <script src="script.js"></script>
+</body>
+</html>
